@@ -32,4 +32,5 @@ nav {
   display: flex;
   color: red;
   justify-content: center;
+  cursor: pointer;
 }

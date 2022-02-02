@@ -87,6 +87,13 @@ article.tweets-container:hover {
   font-size: auto;
   font-weight: 300;
 }
+.profile-handle {
+  display: flex;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.75em;
+  font-weight: 300;
+  margin-left: auto;
+}
 .footer-icons:hover {
   color: #db2c0d;
   cursor: pointer;

@@ -32,6 +32,10 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script
+      type="text/javascript"
+      src="/scripts/compose-char-counter.js"
+    ></script>
   </head>
 
   <body>
@@ -46,7 +50,7 @@
       </span>
     </nav>
 
-    <header>
+    <header class="page-header">
       <div>
         <img src="/images/profile-hex.png" />
       </div>
@@ -59,20 +63,42 @@
     <!-- Page-specific (main) content here -->
     <main>
       <section class="new-tweet">
-        <!-- <div>
-          <h2 class="tweet">Compose Tweet</h2>
-        </div> -->
         <form method="post" action="/tweets">
-          <label class="tweet" for="tweet-text"
-            >What are you humming about?</label
-          >
-
-          <div><textarea name="text" id="tweet-text"></textarea></div>
+          <div class="tweet">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" class="new-tweet-text"></textarea>
+          </div>
           <div class="counter-and-button">
             <button class="tweet-button" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <output name="counter" class="counter" for="tweet-text" id="counter"
+              >140</output
+            >
           </div>
         </form>
+        <section>
+          <article class="tweets-container">
+            <header>
+              <div class="profile-info">
+                <i class="fas fa-user-secret"></i>
+                <p class="profile-name">Profile Name</p>
+              </div>
+
+              <div class="tweet">
+                <p>Tweet text goes here</p>
+              </div>
+            </header>
+            <footer class="tweet-footer">
+              <div>
+                <p class="date-and-time">Date and Time</p>
+              </div>
+              <div>
+                <i class="fas fa-flag footer-icons"></i>
+                <i class="fas fa-retweet footer-icons"></i>
+                <i class="fas fa-heart footer-icons"></i>
+              </div>
+            </footer>
+          </article>
+        </section>
       </section>
     </main>
   </body>

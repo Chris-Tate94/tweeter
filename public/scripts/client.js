@@ -9,6 +9,7 @@ $(document).ready(function () {
     const user = obj["user"];
     const content = obj["content"];
     const time = timeago.format(obj["created_at"]);
+    const safeHTML = `<p>${escape(content.text)}</p>`;
 
     const newTweet = `
     <article class="tweets-container">
@@ -19,7 +20,7 @@ $(document).ready(function () {
       <p class="profile-handle">${user.handle}</p>
     </div>
     <div class="tweet">
-      <p>${content.text}</p>
+      <p>${safeHTML}</p>
     </div>
   </header>
   <footer class="tweet-footer">
@@ -35,6 +36,12 @@ $(document).ready(function () {
 </article> `;
 
     return newTweet;
+  };
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   };
 
   const renderTweets = function (arr) {
@@ -61,7 +68,7 @@ $(document).ready(function () {
     if (numCharacter > 140) {
       return alert("Character count exceeded");
     }
-
+    $(".new-tweet-text").text();
     $.post("/tweets", $(this).serialize(), function () {
       loadTweets();
     });

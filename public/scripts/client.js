@@ -37,7 +37,7 @@ $(document).ready(function () {
 
     return newTweet;
   };
-
+  //for safe text. to avoid XSS attacks
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -61,12 +61,16 @@ $(document).ready(function () {
   $("form").on("submit", function (event) {
     event.preventDefault();
 
+    const charExceeded = `<div class="error-message">Too long. Please do not exceed 140 characters!</div>`;
+
     const numCharacter = $(".new-tweet-text").val().length;
+
     if (!numCharacter) {
       return alert("Form cannot be blank");
     }
     if (numCharacter > 140) {
-      return alert("Character count exceeded");
+      $(".error-message").html(charExceeded);
+      return;
     }
     $(".new-tweet-text").text();
     $.post("/tweets", $(this).serialize(), function () {

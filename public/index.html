@@ -3,7 +3,10 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
     <!-- External CSS -->
     <link
       rel="stylesheet"
@@ -56,20 +59,21 @@
         <div class="arrow"><i class="fas fa-angle-double-down"></i></div>
       </span>
     </nav>
-
-    <header class="page-header">
-      <div>
-        <img src="/images/profile-hex.png" />
-      </div>
-      <br />
-      <div>
-        <h2><strong> Your</strong> Name</h2>
-      </div>
-    </header>
-
+    <div>
+      <header class="page-header">
+        <div>
+          <img src="/images/profile-hex.png" />
+        </div>
+        <br />
+        <div>
+          <h2><strong> Chris</strong> Tate</h2>
+        </div>
+      </header>
+    </div>
     <!-- Page-specific (main) content here -->
     <main>
       <section class="new-tweet">
+        <div class="error-message"></div>
         <form id="create-new-tweet" method="post" action="/tweets">
           <div class="tweet">
             <label for="tweet-text">What are you humming about?</label>
@@ -82,30 +86,7 @@
             >
           </div>
         </form>
-        <section class="tweets-section">
-          <!-- <article class="tweets-container">
-            <header>
-              <div class="profile-info">
-                <i class="fas fa-user-secret"></i>
-                <p class="profile-name">Profile Name</p>
-                <p class="profile-handle">Profile Handle</p>
-              </div>
-              <div class="tweet">
-                <p>Tweet text goes here</p>
-              </div>
-            </header>
-            <footer class="tweet-footer">
-              <div>
-                <p class="date-and-time">Date and Time</p>
-              </div>
-              <div>
-                <i class="fas fa-flag footer-icons"></i>
-                <i class="fas fa-retweet footer-icons"></i>
-                <i class="fas fa-heart footer-icons"></i>
-              </div>
-            </footer>
-          </article> -->
-        </section>
+        <section class="tweets-section"></section>
       </section>
     </main>
   </body>
